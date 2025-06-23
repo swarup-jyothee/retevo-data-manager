@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shelf Detection Reports</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">📋 Shelf Detection Report Dashboard</h2>
+
+    <a href="/dashboard/reports/add" class="btn btn-primary mb-3">➕ Add New Report</a>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Store ID</th>
+            <th>Product ID</th>
+            <th>Compliance %</th>
+            <th>Issues</th>
+            <th>In Stock</th>
+            <th>Timestamp</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="report : ${reports}">
+            <td th:text="${report.id}">1</td>
+            <td th:text="${report.store?.id}">101</td>
+            <td th:text="${report.product?.id}">202</td>
+            <td th:text="${report.compliancePercentage}">85.5</td>
+            <td th:text="${report.issuesDetected}">Label issue</td>
+            <td th:text="${report.inStock}">true</td>
+            <td th:text="${report.timestamp}">2025-06-23</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/" class="btn btn-secondary">← Back to Home</a>
+</div>
+</body>
+</html>
