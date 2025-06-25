@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stores</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>🏬 Store List</h2>
+    <table class="table table-bordered table-striped">
+        <thead><tr><th>ID</th><th>Name</th><th>Location</th><th>Region</th></tr></thead>
+        <tbody>
+        <tr th:each="s : ${stores}">
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.location}"></td>
+            <td th:text="${s.region?.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
